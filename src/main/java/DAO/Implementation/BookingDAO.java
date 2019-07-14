@@ -1,4 +1,4 @@
-package DAO;
+package DAO.Implementation;
 
 public class BookingDAO {
 }
