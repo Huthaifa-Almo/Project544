@@ -1,5 +1,6 @@
 package mum.edu.cs544.service.Implementation;
 
+import mum.edu.cs544.dao.IBookingDAO;
 import mum.edu.cs544.dao.Implementation.BookingDAO;
 import mum.edu.cs544.domain.Booking;
 import mum.edu.cs544.service.IBookingService;
@@ -14,7 +15,7 @@ import java.util.List;
 public class BookingService implements IBookingService {
 
     @Autowired
-    private BookingDAO bookingDAO;
+    private IBookingDAO bookingDAO;
 
     @Override
     public void saveBooking(Booking booking) {

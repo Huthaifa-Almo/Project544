@@ -1,5 +1,6 @@
 package mum.edu.cs544.service.Implementation;
 
+import mum.edu.cs544.dao.IFoodDAO;
 import mum.edu.cs544.dao.Implementation.FoodDAO;
 import mum.edu.cs544.domain.Food;
 import mum.edu.cs544.service.IFoodService;
@@ -11,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class FoodService implements IFoodService {
     @Autowired
-    private FoodDAO foodDAO;
+    private IFoodDAO foodDAO;
     @Override
     public void addFood(Food food) {
         foodDAO.save(food);

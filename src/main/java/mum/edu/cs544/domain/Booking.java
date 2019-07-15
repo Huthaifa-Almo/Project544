@@ -3,6 +3,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -15,11 +16,11 @@ public class Booking implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookingId;
     @Temporal(TemporalType.DATE)
-    private LocalDate date;
+    private Date date;
     @Temporal(TemporalType.TIME)
-    private LocalTime startTime;
+    private Date startTime;
     @Temporal(TemporalType.TIME)
-    private LocalTime endTime;
+    private Date endTime;
     @Column(table = "Customers")
     private String customerName;
     @Column(table = "Customers")
@@ -42,27 +43,27 @@ public class Booking implements Serializable {
         this.bookingId = bookingId;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public LocalTime getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalTime startTime) {
+    public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
-    public LocalTime getEndTime() {
+    public Date getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalTime endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
 

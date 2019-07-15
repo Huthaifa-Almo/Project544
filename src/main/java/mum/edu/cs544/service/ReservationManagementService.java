@@ -13,7 +13,7 @@ public class ReservationManagementService {
 
 
     @Autowired
-    private BookingService bookingService;
+    private IBookingService bookingService;
 
 
     public void addBooking(Booking booking){

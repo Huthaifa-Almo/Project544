@@ -1,5 +1,6 @@
 package mum.edu.cs544.service.Implementation;
 
+import mum.edu.cs544.dao.IOrderDAO;
 import mum.edu.cs544.dao.Implementation.OrderDAO;
 import mum.edu.cs544.domain.Order;
 import mum.edu.cs544.service.IOrderService;
@@ -11,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class OrderService implements IOrderService {
     @Autowired
-    private OrderDAO orderDAO;
+    private IOrderDAO orderDAO;
 
     @Override
     public void setOrder(Order order) {

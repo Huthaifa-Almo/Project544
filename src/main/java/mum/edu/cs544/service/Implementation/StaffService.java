@@ -5,9 +5,11 @@ import mum.edu.cs544.domain.Booking;
 import mum.edu.cs544.domain.Staff;
 import mum.edu.cs544.service.IStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class StaffService implements IStaffService {
 
     @Autowired

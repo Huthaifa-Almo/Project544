@@ -1,5 +1,6 @@
 package mum.edu.cs544.service.Implementation;
 
+import mum.edu.cs544.dao.ITableDAO;
 import mum.edu.cs544.dao.Implementation.TableDAO;
 import mum.edu.cs544.service.ITableService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class TableService implements ITableService {
     @Autowired
-    private TableDAO tableDAO;
+    private ITableDAO tableDAO;
 
     @Override
     public void setOccupied(Long id) {
