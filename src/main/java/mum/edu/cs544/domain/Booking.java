@@ -28,6 +28,11 @@ public class Booking implements Serializable {
     private String email;
     @OneToMany
     private List<Table> reservedTables;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "Staff_Booking",
+    joinColumns = @JoinColumn(name = "bookingId"),
+    inverseJoinColumns = @JoinColumn(name = "staffId"))
+    private List<Staff> staffList;
 
     public Long getBookingId() {
         return bookingId;

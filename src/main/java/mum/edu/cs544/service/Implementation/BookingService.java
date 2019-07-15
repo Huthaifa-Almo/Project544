@@ -23,8 +23,9 @@ public class BookingService implements IBookingService {
     }
 
     @Override
-    public void updateBooking(Booking booking) {
-        bookingDAO.update(booking);
+    public Booking updateBooking(Booking booking) {
+        Booking updatedBooking = bookingDAO.update(booking);
+        return updatedBooking;
     }
 
     @Override
