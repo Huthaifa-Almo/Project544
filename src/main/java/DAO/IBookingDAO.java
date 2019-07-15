@@ -1,4 +1,6 @@
 package DAO;
 
-public interface IBookingDAO {
+import Domain.Booking;
+
+public interface IBookingDAO extends GenericDAO<Booking> {
 }
