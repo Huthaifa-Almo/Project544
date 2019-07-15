@@ -1,7 +1,7 @@
-package DAO.Implementation;
+package mum.edu.cs544.dao.Implementation;
 
-import DAO.IBookingDAO;
-import Domain.Booking;
+import mum.edu.cs544.dao.IBookingDAO;
+import mum.edu.cs544.domain.Booking;
 import org.springframework.stereotype.Repository;
 
 @Repository

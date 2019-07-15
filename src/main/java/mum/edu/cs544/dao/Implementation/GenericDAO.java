@@ -1,10 +1,10 @@
-package DAO.Implementation;
+package mum.edu.cs544.dao.Implementation;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public abstract class GenericDAO<T> implements DAO.GenericDAO<T> {
+public abstract class GenericDAO<T> implements mum.edu.cs544.dao.GenericDAO<T> {
 
     @PersistenceContext
     protected EntityManager entityManager;

@@ -1,7 +1,7 @@
-package DAO.Implementation;
+package mum.edu.cs544.dao.Implementation;
 
-import DAO.IFoodDAO;
-import Domain.Food;
+import mum.edu.cs544.dao.IFoodDAO;
+import mum.edu.cs544.domain.Food;
 
 public class FoodDAO extends GenericDAO<Food> implements IFoodDAO {
     public FoodDAO() {

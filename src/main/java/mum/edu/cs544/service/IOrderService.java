@@ -1,6 +1,6 @@
-package Service;
+package mum.edu.cs544.service;
 
-import Domain.Order;
+import mum.edu.cs544.domain.Order;
 
 public interface IOrderService {
     public void setOrder(Order order);

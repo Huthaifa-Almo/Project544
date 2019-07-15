@@ -1,4 +1,4 @@
-package DAO;
+package mum.edu.cs544.dao;
 
 import java.util.List;
 

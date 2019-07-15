@@ -1,8 +1,8 @@
-package Service.Implementation;
+package mum.edu.cs544.service.Implementation;
 
-import DAO.Implementation.BookingDAO;
-import Domain.Booking;
-import Service.IBookingService;
+import mum.edu.cs544.dao.Implementation.BookingDAO;
+import mum.edu.cs544.domain.Booking;
+import mum.edu.cs544.service.IBookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

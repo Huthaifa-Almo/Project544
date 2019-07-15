@@ -1,7 +1,7 @@
-package Service.Implementation;
+package mum.edu.cs544.service.Implementation;
 
-import DAO.Implementation.TableDAO;
-import Service.ITableService;
+import mum.edu.cs544.dao.Implementation.TableDAO;
+import mum.edu.cs544.service.ITableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

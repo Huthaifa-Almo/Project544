@@ -1,6 +1,6 @@
-package Service;
+package mum.edu.cs544.service;
 
-import Domain.Booking;
+import mum.edu.cs544.domain.Booking;
 
 import java.util.List;
 

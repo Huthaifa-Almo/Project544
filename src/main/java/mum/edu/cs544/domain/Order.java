@@ -1,4 +1,4 @@
-package Domain;
+package mum.edu.cs544.domain;
 
 import javax.persistence.*;
 import java.util.List;
