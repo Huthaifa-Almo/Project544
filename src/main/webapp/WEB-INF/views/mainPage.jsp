@@ -16,6 +16,7 @@
     <br/>
     <br/>
 
-    <a href="food/addFood">Staff List</a>
+    <a href="food/addFood">add food</a>
+    <a href="booking/addBooking">add booking</a>
 </body>
 </html>

@@ -34,11 +34,11 @@ public class StaffController {
 
     @PostMapping("/addStaff")
     public String addStaff(@ModelAttribute("staff") Staff staff) {
-        if (staff.getStaffType() == "0")
+        /*if (staff.getStaffType() == "0")
             staff.setStaffType("Waiter");
         else
             staff.setStaffType("Chef");
-        iStaffService.saveStaff(staff);
+        iStaffService.saveStaff(staff);*/
         return "redirect:/staff";
     }
 

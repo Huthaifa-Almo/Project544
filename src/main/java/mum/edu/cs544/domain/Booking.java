@@ -1,4 +1,5 @@
 package mum.edu.cs544.domain;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -9,7 +10,7 @@ import java.util.List;
 @Entity
 @SecondaryTable(name = "Customers")
 public class Booking implements Serializable {
-    public Booking(){
+    public Booking() {
     }
 
     @Id
@@ -17,14 +18,14 @@ public class Booking implements Serializable {
     private Long bookingId;
     @Temporal(TemporalType.DATE)
     private Date date;
-    @Temporal(TemporalType.TIME)
-    private Date startTime;
-    @Temporal(TemporalType.TIME)
-    private Date endTime;
+
+    private String startTime;
+
+    private String endTime;
     @Column(table = "Customers")
     private String customerName;
     @Column(table = "Customers")
-    private String PhoneNumber;
+    private String phoneNumber;
     @Column(table = "Customers")
     private String email;
     @OneToMany
@@ -48,19 +49,19 @@ public class Booking implements Serializable {
         this.date = date;
     }
 
-    public Date getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Date getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
@@ -73,11 +74,11 @@ public class Booking implements Serializable {
     }
 
     public String getPhoneNumber() {
-        return PhoneNumber;
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
