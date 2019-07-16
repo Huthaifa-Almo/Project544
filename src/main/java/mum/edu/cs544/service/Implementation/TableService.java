@@ -1,13 +1,13 @@
 package mum.edu.cs544.service.Implementation;
 
 import mum.edu.cs544.dao.ITableDAO;
-import mum.edu.cs544.dao.Implementation.TableDAO;
 import mum.edu.cs544.domain.Table;
 import mum.edu.cs544.service.ITableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -47,7 +47,22 @@ public class TableService implements ITableService {
     }
 
     @Override
+    public List<Table> findAllById(List<Long> tablesIds) {
+        return tableDAO.findAllById(tablesIds);
+    }
+
+    @Override
     public Table findOne(Long tableId) {
         return tableDAO.findOne(tableId);
+    }
+
+    @Override
+    public List<Table> findAllByAvailability() {
+        return tableDAO.findAllByAvailability();
+    }
+
+    @Override
+    public void updateTableStatue(List<Table> tableList) {
+        tableDAO.updateTableStatue(tableList);
     }
 }

@@ -15,7 +15,7 @@ public abstract class GenericDAO<T> implements mum.edu.cs544.dao.GenericDAO<T> {
     }
 
     public void save( T entity ){
-        entityManager.persist( entity );
+        entityManager.merge( entity );
     }
 
     public void delete( T entity ){

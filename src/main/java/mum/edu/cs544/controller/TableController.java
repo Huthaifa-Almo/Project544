@@ -22,6 +22,7 @@ public class TableController {
 
     @PostMapping(value = "/addTable")
     public String add(Table table) {
+        table.setAvailable(true);
         iTableService.addtable(table);
         return "redirect:/table/tables";
     }
