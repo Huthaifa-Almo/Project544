@@ -9,7 +9,18 @@ import javax.persistence.Id;
 public class Food {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long foodId;
+    private Long foodId;
+
+    @Override
+    public String toString() {
+        return "Dish Option{" +
+                "Dish Name='" + name + '\'' +
+                ",Dish Price=" + price +
+                ",Dish Origin='" + origin + '\'' +
+                ",Dish Type='" + type + '\'' +
+                '}';
+    }
+
     private String name;
     private double price;
 

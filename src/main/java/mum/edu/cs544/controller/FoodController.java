@@ -16,7 +16,7 @@ public class FoodController {
     private IFoodService iFoodService;
 
     @GetMapping(value = "/addFood")
-    public String addCar(@ModelAttribute("food") Food food) {
+    public String add(@ModelAttribute("food") Food food) {
         return "addFood";
     }
 
@@ -33,21 +33,21 @@ public class FoodController {
     }
 
     @GetMapping(value = "/foods/{fooId}")
-    public String get(@PathVariable Long id, Model model) {
-        model.addAttribute("food", iFoodService.findOne(id));
+    public String get(@PathVariable Long fooId, Model model) {
+        model.addAttribute("food", iFoodService.findOne(fooId));
         return "foodDetails";
     }
 
     @PostMapping(value = "/foods/{fooId}")
     public String update(Food food) {
         iFoodService.updateFood(food);
-        return "redirect:food/foods";
+        return "redirect:/food/foods";
     }
 
     @PostMapping(value = "/foods/delete")
-    public String delete(Long foodId) {
+    public String delete(@RequestParam Long foodId) {
         iFoodService.deletFood(foodId);
-        return "redirect:food/foods";
+        return "redirect:/food/foods";
     }
 
 }

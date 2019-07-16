@@ -28,10 +28,22 @@ public class Booking implements Serializable {
     private String phoneNumber;
     @Column(table = "Customers")
     private String email;
-    @OneToMany
+
+    @OneToMany (mappedBy = "booking")
     private List<Table> reservedTables;
     @OneToMany(mappedBy = "booking")
-    private List<ReservationManagment> reservationManagmentList;
+    private List<ReservationManagment> reservationManagments;
+
+
+    public List<ReservationManagment> getReservationManagments() {
+        return reservationManagments;
+    }
+
+    public void setReservationManagments(List<ReservationManagment> reservationManagments) {
+        this.reservationManagments = reservationManagments;
+    }
+
+
 
     public Long getBookingId() {
         return bookingId;
