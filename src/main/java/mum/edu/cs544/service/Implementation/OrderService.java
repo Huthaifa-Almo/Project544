@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class OrderService implements IOrderService {
@@ -28,5 +30,20 @@ public class OrderService implements IOrderService {
     public Order viewOrder(long id) {
 
         return orderDAO.findOne(id);
+    }
+
+    @Override
+    public List<Order> fiddAll() {
+        return orderDAO.findAll();
+    }
+
+    @Override
+    public Order findOne(long orderId) {
+        return orderDAO.findOne(orderId);
+    }
+
+    @Override
+    public void deleteOrder(long orderId) {
+        orderDAO.delete(orderId);
     }
 }

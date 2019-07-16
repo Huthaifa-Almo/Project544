@@ -3,34 +3,30 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Food Details</title>
+    <title>Table Details</title>
 </head>
 <body>
     <div class="container">
-        <form:form modelAttribute="food" action="../foods/${food.foodId}" method="post">
-            <form:hidden path="foodId"/>
+        <form:form modelAttribute="table" action="../tables/${table.tableId}" method="post">
+            <form:hidden path="tableId"/>
             <table>
                 <tr>
-                    <td>Name:</td>
-                    <td><form:input path="name"/></td>
-                </tr>
-                <tr>
-                    <td>Price:</td>
-                    <td><form:input path="price"/></td>
-                </tr>
-                <tr>
-                    <td>Origin:</td>
-                    <td><form:input path="origin"/></td>
+                    <td>Number Of Seat:</td>
+                    <td><form:input path="numOfSeat"/></td>
                 </tr>
                 <tr>
                     <td>Type:</td>
                     <td><form:input path="type"/></td>
                 </tr>
+                <tr>
+                    <td>Location:</td>
+                    <td><form:input path="location"/></td>
+                </tr>
             </table>
             <input type="submit" value="update"/>
         </form:form>
 
-        <form action="delete?foodId=${food.foodId}" method="post">
+        <form action="delete?tableId=${table.tableId}" method="post">
             <button type="submit">Delete</button>
         </form>
 </div>
