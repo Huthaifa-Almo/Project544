@@ -5,9 +5,13 @@ import mum.edu.cs544.domain.Order;
 import mum.edu.cs544.service.IFoodService;
 import mum.edu.cs544.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/order")
@@ -18,14 +22,18 @@ public class OrderController {
     private IFoodService iFoodService;
 
     @GetMapping(value = "/addOrder")
-    public String add(@ModelAttribute("order") Order order,Model model) {
-        model.addAttribute("foods",iFoodService.findAll());
+    public String add(@ModelAttribute("order") Order order, Model model) {
+        model.addAttribute("foods", iFoodService.findAll());
         return "addOrder";
     }
 
+
+
     @PostMapping(value = "/addOrder")
-    public String addOrder(Order order) {
+    public String addOrder(Order order, Model model, BindingResult result) {
         iOrderService.setOrder(order);
+        //return "redirect:/order/orders";
+      //  model.addAttribute("order", order);
         return "redirect:/order/orders";
     }
 

@@ -7,8 +7,8 @@
 </head>
 <body>
     <div class="container">
-        <form:form modelAttribute="table" action="../tables/${table.tableId}" method="post">
-            <form:hidden path="tableId"/>
+        <form:form modelAttribute="order" action="../orders/${order.orderId}" method="post">
+            <form:hidden path="orderId"/>
             <table>
                 <tr>
                     <td>Number Of Seat:</td>

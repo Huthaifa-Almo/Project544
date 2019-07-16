@@ -15,9 +15,6 @@ public class Food {
     public String toString() {
         return "Dish Option{" +
                 "Dish Name='" + name + '\'' +
-                ",Dish Price=" + price +
-                ",Dish Origin='" + origin + '\'' +
-                ",Dish Type='" + type + '\'' +
                 '}';
     }
 

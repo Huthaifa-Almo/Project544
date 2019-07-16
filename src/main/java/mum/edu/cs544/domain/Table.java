@@ -10,7 +10,22 @@ public class Table {
     private int numOfSeat;
     private boolean available;
     private String type;
+    @ManyToOne
+    private Booking booking;
+    @OneToOne
+    private Order order;
 
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public String getType() {
+        return type;
+    }
     public Booking getBooking() {
         return booking;
     }
@@ -18,14 +33,6 @@ public class Table {
     public void setBooking(Booking booking) {
         this.booking = booking;
     }
-
-    @ManyToOne
-    private Booking booking;
-
-    public String getType() {
-        return type;
-    }
-
     public void setType(String type) {
         this.type = type;
     }

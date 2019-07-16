@@ -8,40 +8,46 @@
     <title>JSP Page</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/bootstrap.min.css"/>">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript">
-        function findDay()
-        {
-            var eID = document.getElementById("dropdown-menu");
-            var dayVal = eID.options[eID.selectedIndex].value;
-            var daytxt = eID.options[eID.selectedIndex].text;
-            alert("Selected Item  " +  daytxt + ", Value " + dayVal);
+    <script>
+        function func() {
+            var me=document.getElementById("selection");
+            var selectedDishId =parseInt(me.options[me.selectedIndex].value);
+
+            ${selectedFood.add(foods.get(3))}
+
+            alert(selectedDishId)
         }
     </script>
+
 </head>
 <body>
 <div class="container">
-    <form:form modelAttribute="order" >
-        <table>
+    <h1>Foods Available in the Resturent</h1>
+<form:form modelAttribute="order">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Origin</th>
+            <th scope="col">Type</th>
+            <th scope="col">Selection</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="food" items="${foods}">
             <tr>
-                <td>Select food from the menu to Add to the order:</td>
-
+                <td>${food.name}</td>
+                <td>${food.price}</td>
+                <td>${food.origin}</td>
+                <td>${food.type}</td>
+                <td><input type="checkbox" name="${food.foodId}"></td>
             </tr>
-            <tr>
-                <td><form:select path="foodList" id="dropdown-menu">
-                    <form:option value = "NONE" label = "Select"/>
-                    <form:options items = "${foods}" />
-                </form:select>
-                </td>
-            </tr>
-
-        </table>
-        <li>
-            <a>
-
-            </a>
-        </li>
-        <input type="submit" value="Submit"/>
-    </form:form>
+        </c:forEach>
+        </tbody>
+    </table>
+   <input type="submit" value="submit">
+</form:form>
 </div>
 </body>
 </html>

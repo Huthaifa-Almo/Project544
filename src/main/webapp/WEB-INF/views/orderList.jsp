@@ -21,13 +21,20 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="table" items="${tables}">
+        <c:forEach var="order" items="${orders}">
             <tr>
-                <td>${table.numOfSeat}</td>
-                <td>${table.type}</td>
-                <td>${table.location}</td>
-                <td>${table.available}</td>
-                <td><a href="tables/${table.tableId}">edit</a></td>
+                <td>${order.orderId}</td>
+                <td>${order.orderdate}</td>
+                <td><table>
+                    <c:forEach var="food" items="${order.foodList}">
+                        <tr>
+                            <td>${food.name}</td>
+                            <td>${food.price}</td>
+                            <td>${food.origin}</td>
+                            <td>${food.type}</td>
+                        </tr>
+                    </c:forEach>
+                </table></td>
             </tr>
         </c:forEach>
         </tbody>
