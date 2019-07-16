@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class FoodService implements IFoodService {
@@ -16,5 +18,25 @@ public class FoodService implements IFoodService {
     @Override
     public void addFood(Food food) {
         foodDAO.save(food);
+    }
+
+    @Override
+    public Food updateFood(Food food) {
+        return foodDAO.update(food);
+    }
+
+    @Override
+    public void deletFood(Long foodId) {
+        foodDAO.delete(foodId);
+    }
+
+    @Override
+    public List<Food> findAll() {
+        return foodDAO.findAll();
+    }
+
+    @Override
+    public Food findOne(Long foodId) {
+        return foodDAO.findOne(foodId);
     }
 }

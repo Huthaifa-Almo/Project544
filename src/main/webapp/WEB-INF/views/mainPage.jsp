@@ -16,6 +16,6 @@
     <br/>
     <br/>
 
-    <a href="staff/list">Staff List</a>
+    <a href="food/addFood">Staff List</a>
 </body>
 </html>
