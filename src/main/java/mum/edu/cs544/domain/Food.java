@@ -12,6 +12,25 @@ public class Food {
     private long foodId;
     private String name;
     private double price;
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    private String origin;
+    private String type;
     private boolean prepared;
     private boolean served;
 

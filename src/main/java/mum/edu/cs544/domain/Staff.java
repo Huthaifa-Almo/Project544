@@ -11,13 +11,12 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class Staff {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long staffId;
     private String staffName;
     private String staffType;
-    @ManyToMany(mappedBy = "staffList")
-    private List<Booking> bookingList;
+    @OneToMany(mappedBy = "staff")
+    private List<ReservationManagment> reservationManagmentList;
 
 }
