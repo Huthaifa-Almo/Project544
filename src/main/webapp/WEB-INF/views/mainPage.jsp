@@ -16,6 +16,6 @@
     <br/>
     <br/>
 
-    <a href="${pageContext.servletContext.contextPath}/staff/list">Staff List</a>
+    <a href="staff/list">Staff List</a>
 </body>
 </html>

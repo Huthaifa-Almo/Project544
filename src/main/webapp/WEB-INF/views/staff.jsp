@@ -18,5 +18,8 @@
     <c:forEach var="staff" items="${staffList}">
         name : ${staff.staffName}
     </c:forEach>
+    <br/>
+    <br/>
+    <h1><a href="${pageContext.servletContext.contextPath}/staff/addStaff">add new staff</a></h1>
 </body>
 </html>
