@@ -11,17 +11,6 @@ public class Table {
     private boolean available;
     private String type;
 
-    public Booking getBooking() {
-        return booking;
-    }
-
-    public void setBooking(Booking booking) {
-        this.booking = booking;
-    }
-
-    @ManyToOne
-    private Booking booking;
-
     public String getType() {
         return type;
     }

@@ -26,12 +26,12 @@ public class BookingController {
     @Autowired
     private ITableService tableService;
 
-    @InitBinder
+    /*@InitBinder
     public void initBinder(WebDataBinder binder) {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         sdf.setLenient(true);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
-    }
+    }*/
 
     @GetMapping("/bookings")
     public String getAllBookings(Model model) {
@@ -43,7 +43,7 @@ public class BookingController {
     @GetMapping("/bookings/{bookingId}")
     public String get(@PathVariable Long bookingId, Model model) {
         Booking booking = bookingService.findOne(bookingId);
-        model.addAttribute("book", booking);
+        model.addAttribute("booking", booking);
         model.addAttribute("msg", "Update");
         return "bookDetails";
     }
@@ -51,28 +51,23 @@ public class BookingController {
     @GetMapping("/addBooking")
     public String createBooking(@ModelAttribute("booking") Booking booking, Model model) {
         model.addAttribute("msg", "Add");
-        //start - to be deleted when tables service available
-        Table table = new Table();
-        Table table2 = new Table();
-        table.setTableId(1l);
-        table2.setTableId(2l);
-        List<Table> tables = new ArrayList<>();
-        tables.add(table);
-        tables.add(table2);
-        model.addAttribute("tables", tables);
+        List<Table> tableList = tableService.findAll();
+        model.addAttribute("tables", tableList);
         //end - to be deleted when tables service available
         return "bookDetails";
     }
 
     @PostMapping("/bookings/addBooking")
     public String add(Booking booking) {
+        List<Table> tableList = tableService.findAllById(booking.getTablesIds());
+        booking.setReservedTables(tableList);
         bookingService.saveBooking(booking);
         return "redirect:/booking/bookings";
     }
 
-    @PostMapping("/bookings/{id}")
-    public String update(Booking booking, @PathVariable int id) {
+    @PostMapping("bookings/{bookingId}")
+    public String update(Booking booking, @PathVariable Long bookingId) {
         bookingService.updateBooking(booking);
-        return "redirect:/bookings";
+        return "redirect:/booking/bookings";
     }
 }

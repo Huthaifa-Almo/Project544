@@ -29,7 +29,7 @@
                 <td><c:out value="${book.endTime}"/></td>
                 <td><c:out value="${book.customerName}"/></td>
                 <td><c:out value="${book.phoneNumber}"/></td>
-                <td><a href="/booking/bookings/${book.bookingId}">edit</a></td>
+                <td><a href="bookings/${book.bookingId}">edit</a></td>
             </tr>
         </c:forEach>
         </tbody>

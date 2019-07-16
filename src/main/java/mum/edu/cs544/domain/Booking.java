@@ -1,9 +1,12 @@
 package mum.edu.cs544.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,11 +19,8 @@ public class Booking implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookingId;
-    @Temporal(TemporalType.DATE)
-    private Date date;
-
+    private String date;
     private String startTime;
-
     private String endTime;
     @Column(table = "Customers")
     private String customerName;
@@ -29,10 +29,15 @@ public class Booking implements Serializable {
     @Column(table = "Customers")
     private String email;
 
-    @OneToMany (mappedBy = "booking")
+    @OneToMany
+    @JoinTable(name = "restTable_booking",joinColumns = @JoinColumn(name = "tableId")
+            ,inverseJoinColumns = @JoinColumn(name = "bookingId"))
     private List<Table> reservedTables;
-    @OneToMany(mappedBy = "booking")
+    @OneToMany(mappedBy = "booking",cascade = CascadeType.ALL)
     private List<ReservationManagment> reservationManagments;
+
+    @Transient
+    private ArrayList<Long> tablesIds = new ArrayList<>();
 
 
     public List<ReservationManagment> getReservationManagments() {
@@ -53,11 +58,11 @@ public class Booking implements Serializable {
         this.bookingId = bookingId;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -107,5 +112,13 @@ public class Booking implements Serializable {
 
     public void setReservedTables(List<Table> reservedTables) {
         this.reservedTables = reservedTables;
+    }
+
+    public ArrayList<Long> getTablesIds() {
+        return tablesIds;
+    }
+
+    public void setTablesIds(ArrayList<Long> tablesIds) {
+        this.tablesIds = tablesIds;
     }
 }

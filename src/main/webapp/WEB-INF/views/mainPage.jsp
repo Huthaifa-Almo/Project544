@@ -20,6 +20,7 @@
     <a href="table/addTable">Add Table</a>
     <a href="staff/addStaff">Add Staff</a>
     <a href="order/addOrder">Add order</a>
+    <a href="booking/addBooking">add booking</a>
 
 </body>
 </html>
