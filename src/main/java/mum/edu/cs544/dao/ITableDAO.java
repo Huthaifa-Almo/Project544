@@ -6,5 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface ITableDAO extends GenericDAO<Table> {
-    List<Table> findAllById(ArrayList<Long> tablesIds);
+    List<Table> findAllById(List<Long> tablesIds);
+    List<Table> findAllByAvailability();
+    void updateTableStatue(List<Table> tableList);
 }

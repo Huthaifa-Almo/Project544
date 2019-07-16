@@ -47,12 +47,22 @@ public class TableService implements ITableService {
     }
 
     @Override
-    public List<Table> findAllById(ArrayList<Long> tablesIds) {
+    public List<Table> findAllById(List<Long> tablesIds) {
         return tableDAO.findAllById(tablesIds);
     }
 
     @Override
     public Table findOne(Long tableId) {
         return tableDAO.findOne(tableId);
+    }
+
+    @Override
+    public List<Table> findAllByAvailability() {
+        return tableDAO.findAllByAvailability();
+    }
+
+    @Override
+    public void updateTableStatue(List<Table> tableList) {
+        tableDAO.updateTableStatue(tableList);
     }
 }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/bootstrap.min.css"/>">
 </head>
 <body>
+    <%@ include file="mainPage.jsp" %>
     <div class="container">
         <c:if test="${msg == 'Update'}">
         <form method="post">
@@ -40,18 +41,16 @@
                     <tr>
                         <td>tables:</td>
                         <td>
-                            <select aria-flowto="100" name="tablesIds" multiple="true">
+                            <select name="tablesIds" multiple="true">
                                 <c:forEach var="table" items="${tables}">
                                     <option value="${table.tableId}" label="${table.location}"/>
                                 </c:forEach>
                             </select>
                         </td>
                     </tr>
-
                 </table>
                     <c:if test="${msg == 'Update'}"><input type="submit" value="Update"/></c:if>
                     <c:if test="${msg == 'Add'}"><input type="submit" value="Add"/></c:if>
-
             </form>
     </div>
 </body>

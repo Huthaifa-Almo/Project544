@@ -4,9 +4,10 @@
 <head>
     <title>Bookings List</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/bootstrap.min.css"/>">
 </head>
 <body>
-
+    <%@ include file="mainPage.jsp" %>
 <div class="container">
     <h1>Available Bookings</h1>
     <table class="table">
@@ -34,6 +35,7 @@
         </c:forEach>
         </tbody>
     </table>
+    <a href="addBooking">add booking</a>
 </div>
 </body>
 </html>

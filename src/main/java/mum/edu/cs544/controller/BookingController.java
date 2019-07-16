@@ -16,6 +16,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/booking")
@@ -43,7 +44,10 @@ public class BookingController {
     @GetMapping("/bookings/{bookingId}")
     public String get(@PathVariable Long bookingId, Model model) {
         Booking booking = bookingService.findOne(bookingId);
+        //List<Long> idsList = booking.getReservedTables().stream().map(t -> t.getTableId()).collect(Collectors.toList());
+        //booking.setTablesIds(idsList);
         model.addAttribute("booking", booking);
+        model.addAttribute("tables", booking.getReservedTables());
         model.addAttribute("msg", "Update");
         return "bookDetails";
     }
@@ -51,7 +55,7 @@ public class BookingController {
     @GetMapping("/addBooking")
     public String createBooking(@ModelAttribute("booking") Booking booking, Model model) {
         model.addAttribute("msg", "Add");
-        List<Table> tableList = tableService.findAll();
+        List<Table> tableList = tableService.findAllByAvailability();
         model.addAttribute("tables", tableList);
         //end - to be deleted when tables service available
         return "bookDetails";
@@ -59,8 +63,12 @@ public class BookingController {
 
     @PostMapping("/bookings/addBooking")
     public String add(Booking booking) {
-        List<Table> tableList = tableService.findAllById(booking.getTablesIds());
-        booking.setReservedTables(tableList);
+        if (!booking.getTablesIds().isEmpty()){
+            List<Table> tableList = tableService.findAllById(booking.getTablesIds());
+            booking.setReservedTables(tableList);
+            tableList.stream().forEach(t -> t.setAvailable(false));
+            tableService.updateTableStatue(tableList);
+        }
         bookingService.saveBooking(booking);
         return "redirect:/booking/bookings";
     }

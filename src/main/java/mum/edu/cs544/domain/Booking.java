@@ -29,15 +29,15 @@ public class Booking implements Serializable {
     @Column(table = "Customers")
     private String email;
 
-    @OneToMany
-    @JoinTable(name = "restTable_booking",joinColumns = @JoinColumn(name = "tableId")
-            ,inverseJoinColumns = @JoinColumn(name = "bookingId"))
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "restTable_booking",joinColumns = @JoinColumn(name = "bookingId")
+            ,inverseJoinColumns = @JoinColumn(name = "tableId"))
     private List<Table> reservedTables;
     @OneToMany(mappedBy = "booking",cascade = CascadeType.ALL)
     private List<ReservationManagment> reservationManagments;
 
     @Transient
-    private ArrayList<Long> tablesIds = new ArrayList<>();
+    private List<Long> tablesIds;
 
 
     public List<ReservationManagment> getReservationManagments() {
@@ -114,11 +114,11 @@ public class Booking implements Serializable {
         this.reservedTables = reservedTables;
     }
 
-    public ArrayList<Long> getTablesIds() {
+    public List<Long> getTablesIds() {
         return tablesIds;
     }
 
-    public void setTablesIds(ArrayList<Long> tablesIds) {
+    public void setTablesIds(List<Long> tablesIds) {
         this.tablesIds = tablesIds;
     }
 }
