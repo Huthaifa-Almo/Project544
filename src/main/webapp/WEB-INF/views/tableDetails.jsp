@@ -7,6 +7,7 @@
 </head>
 <body>
     <div class="container">
+        <form:errors cssStyle="font-style: italic; color: #005cbf" path="table.*"/>
         <form:form modelAttribute="table" action="../tables/${table.tableId}" method="post">
             <form:hidden path="tableId"/>
             <table>

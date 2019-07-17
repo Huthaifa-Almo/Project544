@@ -7,7 +7,10 @@ import mum.edu.cs544.service.ITableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/table")
@@ -21,7 +24,10 @@ public class TableController {
     }
 
     @PostMapping(value = "/addTable")
-    public String add(Table table) {
+    public String add(@Valid Table table, BindingResult result) {
+        if (result.hasErrors()) {
+            return "addTable";
+        }
         table.setAvailable(true);
         iTableService.addtable(table);
         return "redirect:/table/tables";
@@ -40,7 +46,10 @@ public class TableController {
     }
 
     @PostMapping(value = "/tables/{tableId}")
-    public String update(Table table) {
+    public String update(@Valid Table table, BindingResult result) {
+        if (result.hasErrors()) {
+            return "tableDetails";
+        }
         iTableService.updateFood(table);
         return "redirect:/table/tables";
     }

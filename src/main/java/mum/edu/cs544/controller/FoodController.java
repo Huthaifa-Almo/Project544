@@ -5,8 +5,10 @@ import mum.edu.cs544.service.IFoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -21,7 +23,10 @@ public class FoodController {
     }
 
     @PostMapping(value = "/addFood")
-    public String addFood(Food food) {
+    public String addFood(@Valid Food food, BindingResult result) {
+        if (result.hasErrors()) {
+            return "addFood";
+        }
         iFoodService.addFood(food);
         return "redirect:/food/foods";
     }
@@ -39,7 +44,10 @@ public class FoodController {
     }
 
     @PostMapping(value = "/foods/{fooId}")
-    public String update(Food food) {
+    public String update(@Valid Food food, BindingResult result) {
+        if (result.hasErrors()) {
+            return "foodDetails";
+        }
         iFoodService.updateFood(food);
         return "redirect:/food/foods";
     }

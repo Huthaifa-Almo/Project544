@@ -10,6 +10,7 @@
 </head>
 <body>
 <div class="container">
+    <form:errors cssStyle="font-style: italic; color: #005cbf" path="food.*"/>
     <form:form modelAttribute="food">
         <table>
             <tr>

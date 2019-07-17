@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
 
 @Entity
 public class Food {
@@ -18,7 +21,11 @@ public class Food {
                 '}';
     }
 
+    @NotEmpty
     private String name;
+
+    @Min(value=1)
+    @Positive
     private double price;
 
     public String getOrigin() {
@@ -37,7 +44,9 @@ public class Food {
         this.type = type;
     }
 
+    @NotEmpty
     private String origin;
+    @NotEmpty
     private String type;
     private boolean prepared;
     private boolean served;

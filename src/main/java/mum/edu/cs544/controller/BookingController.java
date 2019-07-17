@@ -118,4 +118,10 @@ public class BookingController {
             tableService.updateTableStatue(tableList);
         }
     }
+
+    @PostMapping(value = "bookings/delete")
+    public String delete(@RequestParam Long bookingId) {
+        bookingService.deletBooking(bookingId);
+        return "redirect:/booking/bookings";
+    }
 }

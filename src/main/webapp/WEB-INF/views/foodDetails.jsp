@@ -4,9 +4,12 @@
 <html>
 <head>
     <title>Food Details</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/bootstrap.min.css"/>">
 </head>
 <body>
     <div class="container">
+        <form:errors cssStyle="font-style: italic; color: #005cbf" path="food.*"/>
         <form:form modelAttribute="food" action="../foods/${food.foodId}" method="post">
             <form:hidden path="foodId"/>
             <table>

@@ -1,14 +1,21 @@
 package mum.edu.cs544.domain;
 
+import org.hibernate.validator.constraints.Range;
+
 import javax.persistence.*;
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity(name = "restTable")
 public class Table {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tableId;
+    @Range(min = 1,max = 6)
     private int numOfSeat;
     private boolean available;
+    @NotEmpty
     private String type;
 
     public String getType() {
@@ -27,6 +34,7 @@ public class Table {
         this.location = location;
     }
 
+    @NotEmpty
     private String location;
 
     public Table(){
