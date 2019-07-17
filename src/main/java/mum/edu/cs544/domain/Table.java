@@ -10,16 +10,6 @@ public class Table {
     private int numOfSeat;
     private boolean available;
     private String type;
-    @OneToOne
-    private Order order;
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
 
     public String getType() {
         return type;

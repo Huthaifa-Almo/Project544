@@ -29,7 +29,7 @@ public class Booking implements Serializable {
     @Column(table = "Customers")
     private String email;
 
-    @OneToMany()
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "restTable_booking",joinColumns = @JoinColumn(name = "bookingId")
             ,inverseJoinColumns = @JoinColumn(name = "tableId"))
     private List<Table> reservedTables;

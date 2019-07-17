@@ -11,7 +11,7 @@ public class Order {
     private long orderId;
     @Temporal(TemporalType.DATE)
     private Date orderdate;
-    @OneToOne(mappedBy = "order")
+    @OneToOne
     private Table table;
     @OneToMany
     @JoinTable(name = "orderFood")
