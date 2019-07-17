@@ -11,10 +11,11 @@
     <%@ include file="mainPage.jsp" %>
     <div class="container">
         <form:errors path="booking.*"/>
-        <form method="post">
+       <c:if test="${msg == 'yes'}">errors: ${errors}</c:if>
+            <form action="bookings/addBooking" method="post">
                 <table>
                     <tr>
-                        <td>date:</td>
+                        <td>new date:</td>
                         <td><input type="text" name="date" value="${booking.date}"/></td>
                     </tr>
                     <tr>
@@ -45,7 +46,7 @@
                         </td>
                     </tr>
                 </table>
-                    <input type="submit" value="Update"/>
+                <input type="submit" value="Add"/>
             </form>
     </div>
 </body>

@@ -3,6 +3,9 @@ package mum.edu.cs544.domain;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -19,21 +22,28 @@ public class Booking implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookingId;
+    @NotEmpty(message = "date can't be empty")
     private String date;
+    @NotEmpty
+    @Size(min = 2, max = 2, message = "invalid start time")
     private String startTime;
+    @NotEmpty
+    @Size(min = 2, max = 2, message = "invalid end time")
     private String endTime;
     @Column(table = "Customers")
+    @NotEmpty
     private String customerName;
     @Column(table = "Customers")
+    @NotEmpty
     private String phoneNumber;
     @Column(table = "Customers")
     private String email;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "restTable_booking",joinColumns = @JoinColumn(name = "bookingId")
-            ,inverseJoinColumns = @JoinColumn(name = "tableId"))
+    @JoinTable(name = "restTable_booking", joinColumns = @JoinColumn(name = "bookingId")
+            , inverseJoinColumns = @JoinColumn(name = "tableId"))
     private List<Table> reservedTables;
-    @OneToMany(mappedBy = "booking",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
     private List<ReservationManagment> reservationManagments;
 
     @Transient
@@ -47,7 +57,6 @@ public class Booking implements Serializable {
     public void setReservationManagments(List<ReservationManagment> reservationManagments) {
         this.reservationManagments = reservationManagments;
     }
-
 
 
     public Long getBookingId() {
