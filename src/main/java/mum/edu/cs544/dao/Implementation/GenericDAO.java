@@ -33,7 +33,6 @@ public abstract class GenericDAO<T> implements mum.edu.cs544.dao.GenericDAO<T> {
         return (T) entityManager.find(daoClass, id );
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public List<T> findAll(){
         return entityManager.createQuery( "from " + daoClass.getName() )

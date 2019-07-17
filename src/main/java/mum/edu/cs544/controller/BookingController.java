@@ -63,7 +63,7 @@ public class BookingController {
 
     @PostMapping("/bookings/addBooking")
     public String add(Booking booking) {
-        if (!booking.getTablesIds().isEmpty()){
+        if (booking.getTablesIds() != null && !booking.getTablesIds().isEmpty()){
             List<Table> tableList = tableService.findAllById(booking.getTablesIds());
             booking.setReservedTables(tableList);
             tableList.stream().forEach(t -> t.setAvailable(false));
