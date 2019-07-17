@@ -12,7 +12,7 @@
     <title>Staff List</title>
 </head>
 <body>
-
+    <%@ include file="mainPage.jsp" %>
 
     <h1>Just for test</h1>
     <c:forEach var="staff" items="${staffList}">

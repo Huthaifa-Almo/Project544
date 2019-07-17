@@ -21,6 +21,7 @@
 
 </head>
 <body>
+    <%@ include file="mainPage.jsp" %>
 <div class="container">
     <h1>Foods Available in the Resturent</h1>
 <form:form modelAttribute="order">

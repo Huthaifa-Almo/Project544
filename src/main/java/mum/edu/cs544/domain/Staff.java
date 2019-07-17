@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -51,6 +53,8 @@ public class Staff {
         this.reservationManagmentList = reservationManagmentList;
     }
 
+    @NotEmpty
+    @Size(min=4,max = 20)
     private String staffName;
     private String staffType;
     @OneToMany(mappedBy = "staff")

@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/bootstrap.min.css"/>">
 </head>
 <body>
+    <%@ include file="mainPage.jsp" %>
 <div class="container">
     <form:errors cssStyle="font-style: italic; color: #005cbf" path="food.*"/>
     <form:form modelAttribute="food">

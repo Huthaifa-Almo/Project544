@@ -12,42 +12,38 @@
     <div class="container">
         <form:errors path="booking.*"/>
        <c:if test="${msg == 'yes'}">errors: ${errors}</c:if>
-            <form action="bookings/addBooking" method="post">
+            <form:form modelAttribute="booking" action="bookings/addBooking" method="post">
                 <table>
                     <tr>
-                        <td>new date:</td>
-                        <td><input type="text" name="date" value="${booking.date}"/></td>
+                        <td>date:</td>
+                        <td><form:input path="date"/></td>
                     </tr>
                     <tr>
                         <td>startTime:</td>
-                        <td><input type="text" name="startTime" value="${booking.startTime}"/></td>
+                        <td><form:input path="startTime"/></td>
                     </tr>
                     <tr>
                         <td>endTime:</td>
-                        <td><input type="text" name="endTime" value="${booking.endTime}"/></td>
+                        <td><form:input path="endTime"/></td>
                     </tr>
                     <tr>
                         <td>customerName:</td>
-                        <td><input type="text" name="customerName" value="${booking.customerName}"/></td>
+                        <td><form:input path="customerName"/></td>
                     </tr>
                     <tr>
                         <td>phoneNumber:</td>
-                        <td><input type="text" name="phoneNumber" value="${booking.phoneNumber}"/></td>
+                        <td><form:input path="phoneNumber"/></td>
                     </tr>
 
                     <tr>
                         <td>tables:</td>
                         <td>
-                            <select name="tablesIds" multiple="true">
-                                <c:forEach var="table" items="${tables}">
-                                    <option value="${table.tableId}" label="${table.location}"/>
-                                </c:forEach>
-                            </select>
+                            <form:select path="tablesIds" items="${tables}" itemValue="tableId" itemLabel="location"/>
                         </td>
                     </tr>
                 </table>
                 <input type="submit" value="Add"/>
-            </form>
+            </form:form>
     </div>
 </body>
 </html>

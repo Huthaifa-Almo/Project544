@@ -6,6 +6,7 @@
     <title>Table Details</title>
 </head>
 <body>
+    <%@ include file="mainPage.jsp" %>
     <div class="container">
         <form:form modelAttribute="order" action="../orders/${order.orderId}" method="post">
             <form:hidden path="orderId"/>

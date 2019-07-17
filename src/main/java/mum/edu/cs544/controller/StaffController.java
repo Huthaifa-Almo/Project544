@@ -7,7 +7,10 @@ import mum.edu.cs544.service.IStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/staff")
@@ -21,7 +24,10 @@ public class StaffController {
     }
 
     @PostMapping(value = "/addStaff")
-    public String addStaff(Staff staff) {
+    public String addStaff(@Valid Staff staff, BindingResult result) {
+        if (result.hasErrors()) {
+            return "addStaff";
+        }
         iStaffService.saveStaff(staff);
         return "redirect:/staff/staffs";
     }
@@ -39,7 +45,10 @@ public class StaffController {
     }
 
     @PostMapping(value = "/staffs/{staffId}")
-    public String update(Staff staff) {
+    public String update(@Valid Staff staff, BindingResult result) {
+        if (result.hasErrors()) {
+            return "staffDetails";
+        }
         iStaffService.updateStaff(staff);
         return "redirect:/staff/staffs";
     }

@@ -6,6 +6,7 @@
     <title>Table Details</title>
 </head>
 <body>
+    <%@ include file="mainPage.jsp" %>
     <div class="container">
         <form:errors cssStyle="font-style: italic; color: #005cbf" path="table.*"/>
         <form:form modelAttribute="table" action="../tables/${table.tableId}" method="post">

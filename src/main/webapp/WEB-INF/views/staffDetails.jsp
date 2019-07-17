@@ -4,9 +4,13 @@
 <html>
 <head>
     <title>Food Details</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/bootstrap.min.css"/>">
 </head>
 <body>
+    <%@ include file="mainPage.jsp" %>
     <div class="container">
+        <form:errors cssStyle="font-style: italic; color: #005cbf" path="staff.*"/>
         <form:form modelAttribute="staff" action="../staffs/${staff.staffId}" method="post">
             <form:hidden path="staffId"/>
             <table>

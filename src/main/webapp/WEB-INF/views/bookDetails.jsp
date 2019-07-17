@@ -11,42 +11,38 @@
     <%@ include file="mainPage.jsp" %>
     <div class="container">
         <form:errors path="booking.*"/>
-        <form method="post">
+        <form:form modelAttribute="booking" method="post">
             <table>
                 <tr>
                     <td>date:</td>
-                    <td><input type="text" name="date" value="${booking.date}"/></td>
+                    <td><form:input path="date"/></td>
                 </tr>
                 <tr>
                     <td>startTime:</td>
-                    <td><input type="text" name="startTime" value="${booking.startTime}"/></td>
+                    <td><form:input path="startTime"/></td>
                 </tr>
                 <tr>
                     <td>endTime:</td>
-                    <td><input type="text" name="endTime" value="${booking.endTime}"/></td>
+                    <td><form:input path="endTime"/></td>
                 </tr>
                 <tr>
                     <td>customerName:</td>
-                    <td><input type="text" name="customerName" value="${booking.customerName}"/></td>
+                    <td><form:input path="customerName"/></td>
                 </tr>
                 <tr>
                     <td>phoneNumber:</td>
-                    <td><input type="text" name="phoneNumber" value="${booking.phoneNumber}"/></td>
+                    <td><form:input path="phoneNumber"/></td>
                 </tr>
 
                 <tr>
                     <td>tables:</td>
                     <td>
-                        <select name="tablesIds" multiple="true">
-                            <c:forEach var="table" items="${tables}">
-                                <option value="${table.tableId}" label="${table.location}"/>
-                            </c:forEach>
-                        </select>
+                        <form:select path="tablesIds" items="${tables}" itemValue="tableId" itemLabel="location"/>
                     </td>
                 </tr>
             </table>
             <input type="submit" value="Update"/>
-        </form>
+        </form:form>
         <%--<form action="delete?bookingId=${booking.bookingId}" method="post">
             <button type="submit">Delete</button>
         </form>--%>

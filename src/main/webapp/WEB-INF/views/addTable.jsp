@@ -5,10 +5,10 @@
 <head>
     <title>Add Food</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JSP Page</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/bootstrap.min.css"/>">
 </head>
 <body>
+    <%@ include file="mainPage.jsp" %>
 <div class="container">
     <form:errors cssStyle="font-style: italic; color: #005cbf" path="table.*"/>
     <form:form modelAttribute="table">

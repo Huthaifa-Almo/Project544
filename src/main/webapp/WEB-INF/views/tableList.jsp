@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/bootstrap.min.css"/>">
 </head>
 <body>
+    <%@ include file="mainPage.jsp" %>
 <div class="container">
     <h1>Foods Available in the Resturent</h1>
     <table class="table">
